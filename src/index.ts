@@ -1,4 +1,4 @@
-import './style.css'
+import './style.less'
 import Handlebars from 'handlebars';
 import * as Components from './components'
 import * as Pages from './pages';
