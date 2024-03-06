@@ -1,6 +1,6 @@
 .input {
     height: 26px;
-  
+
     &__element {
       border: none;
       padding: 0;
@@ -8,10 +8,12 @@
       height: 100%;
       box-sizing: border-box;
       font: inherit;
-  
-      &__align-right {
-        text-align: right;
-      }
+      font-size: 13px;
     }
+
+  }
+
+  input:focus::placeholder {
+    color: transparent;
   }
   
