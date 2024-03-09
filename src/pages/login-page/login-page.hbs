@@ -2,13 +2,14 @@
   <form class="login-page">
     <div class="login-page__content">
       {{> PageTitle title="Вход" }}
-        {{> InputField className="login-page__input" title="Логин" name="login" placeholder="Логин" id="login"}}
-        {{> IncorrectNotification className="incorrect-notification__active" text="Неверный логин"}}
-        {{> InputField className="login-page__input" title="Пароль" name="password" type="password" placeholder="Пароль" id="password"}}
+        {{> InputField className="login-page__input" title="Логин" name="login" placeholder="" id="login" errorText="" errorId="loginField"}}
+        {{> InputField className="login-page__input" title="Пароль" name="password" type="password" placeholder="" id="password" errorText="" errorId="passwordField"}}
     </div>
     <div class="login-page__footer">
-      {{> Button text="Авторизоваться" page="chat" }}
+      {{> Button buttonId="authorizeBtn" text="Авторизоваться" page="chat" }}
       {{> Link text="Нет аккаунта?" page="registration" }}
     </div>
   </form>
+
 {{/ Dialog }}
+
