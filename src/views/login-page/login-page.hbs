@@ -6,8 +6,9 @@
         {{> InputField className="login-page__input" title="Пароль" name="password" type="password" placeholder="" id="password" errorText="" errorId="passwordField"}}
     </div>
     <div class="login-page__footer">
-      {{> Button buttonId="authorizeBtn" text="Авторизоваться" page="chat" }}
+      {{> Button buttonId="authorizeBtn" text="Авторизоваться" page="notFound"}}
       {{> Link text="Нет аккаунта?" page="registration" }}
+      {{!-- <a href="../404-page/404-page.hbs">404</a> --}}
     </div>
   </form>
 

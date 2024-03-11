@@ -1,7 +1,7 @@
 import './style.less'
 import Handlebars from 'handlebars';
 import * as Components from './components'
-import * as Pages from './pages';
+import * as Pages from './views';
 
 let currentPage = '';
 
@@ -24,8 +24,10 @@ Object.entries(Components).forEach(([ name, component ]) => {
 
 function navigate(page: string) {
   console.log('page', page)
+  console.log(pages)
   const [ source, args ] = pages[page];
   currentPage = page;
+  console.log(source)
   const handlebarsFunct = Handlebars.compile(source);
   document.body.innerHTML = handlebarsFunct(args);
 }
