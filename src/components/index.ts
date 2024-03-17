@@ -6,4 +6,5 @@ export { InputField } from './input-field/input-field';
 export { Link } from './link/link';
 export { PageTitle } from './page-title/page-title';
 export { IncorrectNotification } from './incorrect-notification/incorrect-notification';
+export { ProfilePhoto } from './profile-photo/profile-photo';
 

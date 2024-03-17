@@ -16,6 +16,7 @@ const pages:Pages  = {
   'serverError': [Pages.ServerErrorPage],
   'registration': [Pages.RegistrationPage],
   'profile': [Pages.ProfilePage],
+  // 'settings': [Pages.Settings],
 };
 
 Object.entries(Components).forEach(([ name, component ]) => {
@@ -23,29 +24,29 @@ Object.entries(Components).forEach(([ name, component ]) => {
 });
 
 function navigate(page: string) {
-  console.log('page', page)
-  console.log(pages)
-  const [ source, args ] = pages[page];
-  currentPage = page;
-  console.log(source)
-  const handlebarsFunct = Handlebars.compile(source);
-  document.body.innerHTML = handlebarsFunct(args);
+    currentPage = page
+    const [source, args] = pages[page]
+    const handlebarsFunct = Handlebars.compile(source)
+    document.body.innerHTML = handlebarsFunct(args)
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  navigate('login');
+    let currentUrl = window.location.href
+    let navPage = currentUrl.split('/').at(-1)
+    if (navPage && pages[navPage] ) {
+        navigate(navPage)
+    } 
+    else {
+        navigate('login')
+    }
 });
 
 document.addEventListener('click', e => {
-   const page = (e.target as HTMLElement).getAttribute('page');
-   console.log('on click',page)
-  //  let check = loginFormValidation()
-  //   console.log(check)
+  const page = (e.target as HTMLElement).getAttribute('page');
   if (page && page !== currentPage) {
     if (currentPage === 'login' && page === 'chat') {
         let check = loginFormValidation()
         if (check) {
-            currentPage = page;
             navigate(page)
             e.preventDefault()
             e.stopImmediatePropagation()
@@ -55,25 +56,19 @@ document.addEventListener('click', e => {
             e.stopImmediatePropagation()
         }
     } 
-    else if (currentPage === 'registration' && page === 'chat') {
+    else if (currentPage === 'registration' && page === 'profile') {
         let checkPass = registerFormValidation()
         if (checkPass) {
-          currentPage = page;
-            navigate(page)
-            e.preventDefault()
-            e.stopImmediatePropagation()
+          window.location.href = window.location.origin + "/" + page;
+          navigate(page)
+          e.preventDefault()
+          e.stopImmediatePropagation()
         } 
         else {
             e.preventDefault()
             e.stopImmediatePropagation()
         }
-    } 
-    else if (currentPage === 'login' && page === 'registration') {
-      currentPage = page;
-        navigate(page)
-        e.preventDefault()
-        e.stopImmediatePropagation()
-    } 
+    }
   }
 });
 

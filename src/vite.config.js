@@ -11,7 +11,8 @@ export default defineConfig({
             main: resolve(__dirname, '/src/index.html'),
             auth: resolve(__dirname, '/src/pages/login-page/login-page.html')
           }
-        }
+        },
+        assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg']
     },
     plugins: [handlebars({
         partialDirectory: resolve(__dirname, 'src/components'),

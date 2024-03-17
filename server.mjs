@@ -17,7 +17,8 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(`${__dirname}/dist`));
 
 app.set("view engine", "hbs");
-//app.set("views", __dirname + "/src/pages/"); // установка пути к представлениям
+app.set("views", __dirname + "/src/pages/"); // установка пути к представлениям
+
 app.get('/', (req, res) => {
   res.render('login-page', {
     title: 'Home Page',
@@ -26,7 +27,7 @@ app.get('/', (req, res) => {
 
 app.get('/registration', (req, res) => {
   res.render('registration-page', {
-    title: 'Home Page',
+    title: 'Reg',
   });
 });
 
